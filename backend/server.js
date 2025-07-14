@@ -32,3 +32,12 @@ app.get('/api/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// ⏱ Self-Ping Logic
+if (process.env.PING_URL) {
+  setInterval(() => {
+    fetch(process.env.PING_URL)
+      .then(res => console.log(`🔁 Self-ping success: ${res.status}`))
+      .catch(err => console.error('❌ Self-ping failed:', err.message));
+  }, 10 * 60 * 1000); // Every 2 minutes
+}
