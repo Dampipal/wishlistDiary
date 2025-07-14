@@ -25,7 +25,7 @@ app.use('/api/auth', authRoutes);
 
 // Example route for user registration
 app.get('/api/health', (req, res) => {
-  res.send('API is running smoothly!');
+  res.send('API is running smoothly! ...');
 });
 
 
